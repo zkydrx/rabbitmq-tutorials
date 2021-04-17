@@ -1,12 +1,12 @@
 # RabbitMQ Tutorials
 
-This project contains code for [RabbitMQ tutorials](http://www.rabbitmq.com/getstarted.html) with
+This project contains code for [RabbitMQ tutorials](https://www.rabbitmq.com/getstarted.html) with
 their ports to various languages.
 
-This repository only contains runnable code. Please consult [tutorials on the site](http://www.rabbitmq.com/getstarted.html)
-to learn more about [the concepts](http://www.rabbitmq.com/getstarted.html), requirements, supported client library version and so on.
+This repository only contains runnable code. Please consult [tutorials on the site](https://www.rabbitmq.com/getstarted.html)
+to learn more about [the concepts](https://www.rabbitmq.com/getstarted.html), requirements, supported client library version and so on.
 
-A please check out the rest of [RabbitMQ documentation](https://www.rabbitmq.com/documentation.html)!
+And please check out the rest of the [RabbitMQ documentation](https://www.rabbitmq.com/documentation.html)!
 
 ## Prerequisites
 
@@ -36,8 +36,9 @@ The following ports are available:
  * [Haskell](./haskell)
  * [JavaScript (with Node and amqp-node)](./javascript-nodejs) (using callbacks)
  * [JavaScript (with Node and amqp-node)](https://github.com/squaremo/amqp.node/tree/master/examples) (using promises/futures)
- * [Java](./java)
+ * [Java with Maven](./java-mvn)
  * [Java (with IntelliJ IDEA)](./java-idea)
+ * [Java](./java) (with manual dependency management)
  * [Kotlin](./kotlin)
  * [PHP (with php-amqplib)](./php)
  * [PHP (with php-amqp)](./php-amqp)
@@ -45,6 +46,7 @@ The following ports are available:
  * [Perl](./perl)
  * [Python (with Pika)](./python)
  * [Ruby (with Bunny)](./ruby)
+ * [Rust](./rust)
  * [Scala](./scala)
  * [Swift](./swift)
  * [Spring AMQP](./spring-amqp)
@@ -52,4 +54,4 @@ The following ports are available:
  
 ## License
 
-Released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
+Released under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).

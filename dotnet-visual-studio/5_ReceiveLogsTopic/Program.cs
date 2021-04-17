@@ -14,7 +14,7 @@ class Program
             channel.ExchangeDeclare(exchange: "topic_logs", type: "topic");
             var queueName = channel.QueueDeclare().QueueName;
 
-            if(args.Length < 1)
+            if (args.Length < 1)
             {
                 Console.Error.WriteLine("Usage: {0} [binding_key...]", Environment.GetCommandLineArgs()[0]);
                 Console.WriteLine(" Press [enter] to exit.");
@@ -30,17 +30,17 @@ class Program
 
             Console.WriteLine(" [*] Waiting for messages. To exit press CTRL+C");
 
-            var consumer = new QueueingBasicConsumer(channel);
-            channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
-
-            while(true)
+            var consumer = new EventingBasicConsumer(channel);
+            consumer.Received += (model, ea) =>
             {
-                var ea = (BasicDeliverEventArgs)consumer.Queue.Dequeue();
-                var body = ea.Body;
-                var message = Encoding.UTF8.GetString(body);
+                var message = Encoding.UTF8.GetString(ea.Body.ToArray());
                 var routingKey = ea.RoutingKey;
                 Console.WriteLine(" [x] Received '{0}':'{1}'", routingKey, message);
-            }
+            };
+            channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
+
+            Console.WriteLine(" Press [enter] to exit.");
+            Console.ReadLine();
         }
     }
 }

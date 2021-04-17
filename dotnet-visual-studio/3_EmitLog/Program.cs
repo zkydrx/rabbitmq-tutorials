@@ -10,7 +10,7 @@ class Program
         using(var connection = factory.CreateConnection())
         using(var channel = connection.CreateModel())
         {
-            channel.ExchangeDeclare(exchange: "logs", type: "fanout");
+            channel.ExchangeDeclare(exchange: "logs", type: ExchangeType.Fanout);
 
             var message = GetMessage(args);
             var body = Encoding.UTF8.GetBytes(message);
@@ -24,6 +24,6 @@ class Program
 
     private static string GetMessage(string[] args)
     {
-        return (( args.Length > 0) ? string.Join(" ", args) : "info: Hello World!");
+        return ((args.Length > 0) ? string.Join(" ", args) : "info: Hello World!");
     }
 }

@@ -29,7 +29,7 @@ public class RpcClient
         {
             if (!callbackMapper.TryRemove(ea.BasicProperties.CorrelationId, out TaskCompletionSource<string> tcs))
                 return;
-            var body = ea.Body;
+            var body = ea.Body.ToArray();
             var response = Encoding.UTF8.GetString(body);
             tcs.TrySetResult(response);
         };
@@ -81,7 +81,6 @@ public class Rpc
 
   private static async Task InvokeAsync(string n)
   {
-      var rnd = new Random(Guid.NewGuid().GetHashCode());
       var rpcClient = new RpcClient();
 
       Console.WriteLine(" [x] Requesting fib({0})", n);
